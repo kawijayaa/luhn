@@ -45,13 +45,12 @@ def create_check_digit(input):
     for x in odd_placed_num:
         num = int(x)
         odd_digit_sum += num
-    input_split = " ".join([input[i:i+4] for i in range(0, len(input), 4)])
     verify_num = odd_digit_sum + even_digit_sum
     if verify_num % 10 == 0:
         input = input[:-1]
         return int(input[-1])
     else:
-        return 10 - (verify_num - 10)
+        return (10 - (verify_num % 10))
 
 def main():
     while True:    
